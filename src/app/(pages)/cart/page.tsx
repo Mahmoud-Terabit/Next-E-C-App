@@ -10,13 +10,14 @@ import { toast } from 'sonner';
 
 type CartLineItem = {
     _id: string
+    id: string
     count: number
     price: number
     product: ProductType
 }
 
 export default function Cart() {
-    const [products, setproducts] = useState<CartLineItem[]>([])
+    const [products, setproducts] = useState<CartLineItem[]>([]) // عشان التايب سكريب  for typescript
     // const [products, setproducts] = useState([])
     const [isLoding, setIsLoding] = useState(false)
 
@@ -122,7 +123,8 @@ export default function Cart() {
                     <ul className="min-w-0 flex-1 space-y-3 sm:space-y-4 lg:w-2/3">
                         {products.map((item) => (
                             <li
-                                key={item._id}
+                                // key={item._id} 
+                                key={item.id}
                                 className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm sm:p-4"
                             >
                                 <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
