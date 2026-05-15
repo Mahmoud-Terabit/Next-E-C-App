@@ -69,6 +69,12 @@ export default function Cart() {
 
     const itemCount = products.length
 
+    // مجموع السلة = سعر المنتج × الكمية لكل منتج
+    let cartTotal = 0
+    for (const item of products) {
+        cartTotal += item.price * item.count
+    }
+
     return (
         <div className="mx-auto w-full max-w-7xl overflow-x-hidden px-4 py-6 sm:px-6 sm:py-8 lg:px-8">
             <header className="mb-6 flex flex-col gap-4 border-b border-slate-200 pb-6 sm:mb-8 sm:flex-row sm:items-center sm:justify-between">
@@ -123,8 +129,7 @@ export default function Cart() {
                     <ul className="min-w-0 flex-1 space-y-3 sm:space-y-4 lg:w-2/3">
                         {products.map((item) => (
                             <li
-                                // key={item._id} 
-                                key={item.id}
+                                key={item._id}
                                 className="rounded-2xl border border-slate-200 bg-white p-3 shadow-sm sm:p-4"
                             >
                                 <div className="flex flex-col gap-3 sm:flex-row sm:gap-4">
@@ -192,7 +197,7 @@ export default function Cart() {
 
                                             <div className="text-left sm:text-right">
                                                 <div className="text-xs text-slate-500 sm:text-sm">Total</div>
-                                                <div className="text-lg font-bold text-slate-900 sm:text-xl">{item.price}</div>
+                                                <div className="text-lg font-bold text-slate-900 sm:text-xl">{item.price * item.count} EGP</div>
                                             </div>
                                         </div>
 
@@ -233,7 +238,7 @@ export default function Cart() {
                             <div className="space-y-3 p-4 sm:space-y-4 sm:p-6">
                                 <div className="flex justify-between text-sm text-slate-700 sm:text-base">
                                     <span>Subtotal</span>
-                                    <span className="font-medium">1,994 EGP</span>
+                                    <span className="font-medium">{cartTotal} EGP</span>
                                 </div>
                                 <div className="flex justify-between text-sm text-slate-700 sm:text-base">
                                     <span>Shipping</span>
@@ -241,7 +246,7 @@ export default function Cart() {
                                 </div>
                                 <div className="flex justify-between border-t border-slate-200 pt-3 text-base font-bold text-slate-900 sm:pt-4 sm:text-lg">
                                     <span>Total</span>
-                                    <span>1,994 EGP</span>
+                                    <span>{cartTotal} EGP</span>
                                 </div>
 
                                 <button
