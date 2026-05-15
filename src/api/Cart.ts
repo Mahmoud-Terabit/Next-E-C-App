@@ -67,7 +67,8 @@ export async function handelDelteToCart(productId : string) {
 }
 
 
-export async function handelClearToCart(productId : string) {
+// export async function handelClearToCart(productId : string) 
+export async function handelClearToCart() {
     const token = await getUserToken()
     const response = await fetch(`${process.env.BASE_URL}/cart`, {
         method :"DELETE",
