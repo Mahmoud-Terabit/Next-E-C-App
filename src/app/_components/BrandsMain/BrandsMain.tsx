@@ -1,6 +1,7 @@
 "use client"
 
-import { BrandsType } from '@/types/Brands.type'
+
+import { BrandsType } from '@/types/GetAllBrands.type';
 import Image from 'next/image';
 import Link from 'next/link';
 import React from 'react'
