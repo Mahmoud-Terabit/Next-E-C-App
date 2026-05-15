@@ -8,16 +8,16 @@ import Link from 'next/link';
 import React, { useEffect, useState } from 'react'
 import { toast } from 'sonner';
 
-// type CartLineItem = {
-//     _id: string
-//     count: number
-//     price: number
-//     product: ProductType
-// }
+type CartLineItem = {
+    _id: string
+    count: number
+    price: number
+    product: ProductType
+}
 
 export default function Cart() {
-    // const [products, setproducts] = useState<CartLineItem[]>([])
-    const [products, setproducts] = useState([])
+    const [products, setproducts] = useState<CartLineItem[]>([])
+    // const [products, setproducts] = useState([])
     const [isLoding, setIsLoding] = useState(false)
 
     async function getUserCart() {
